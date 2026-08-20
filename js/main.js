@@ -77,7 +77,7 @@ function respawnBalloon(config) {
   balloon.setAttribute("aria-label", "Globo. Pulsa para reventar");
   balloon.style.left = config.x;
   balloon.style.top = config.y;
-  balloon.style.setProperty("--size", `${config.size}px`);
+  balloon.style.setProperty("--size", `${config.size * 0.7}px`);
   balloon.style.setProperty("--duration", `${config.duration}s`);
   balloon.style.setProperty("--delay", "0s");
   balloon.innerHTML = `
