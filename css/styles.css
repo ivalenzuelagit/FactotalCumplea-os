@@ -849,6 +849,216 @@ body {
     margin-top: -28px;
     margin-bottom: -48px;
   }
+  /* ==================================================
+   FACTOTAL - VERSION COMPACTA / SIN SCROLL
+   PEGAR AL FINAL DEL ARCHIVO
+   ================================================== */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden !important;
+}
+
+.scene {
+  width: 100%;
+  height: 100vh !important;
+  min-height: 100vh !important;
+
+  padding: 12px 20px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  overflow: hidden !important;
+}
+
+/* Logo */
+.brand {
+  position: absolute !important;
+  top: 18px !important;
+  left: 20px !important;
+}
+
+/* =========================
+   TEXTO CENTRAL
+   ========================= */
+
+.card {
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: 430px !important;
+
+  margin: -30px auto 0 !important;
+  padding: 0 !important;
+
+  text-align: center !important;
+}
+
+.eyebrow {
+  margin: 0 0 3px !important;
+  font-size: 9px !important;
+  letter-spacing: 0.25em !important;
+}
+
+.title {
+  margin: 0 !important;
+  line-height: 0.9 !important;
+}
+
+.title-script {
+  font-size: 58px !important;
+  line-height: 60px !important;
+}
+
+.title-serif {
+  margin-top: -2px !important;
+
+  font-size: 42px !important;
+  line-height: 44px !important;
+}
+
+.gold-rule {
+  width: 120px !important;
+  height: 1px !important;
+
+  margin: 10px auto 10px !important;
+}
+
+.wish {
+  width: 100% !important;
+  max-width: 400px !important;
+
+  margin: 0 auto 6px !important;
+
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+
+  text-align: center !important;
+}
+
+.hint {
+  margin: 0 !important;
+
+  font-size: 11px !important;
+  line-height: 16px !important;
+}
+
+/* =========================
+   TORTA
+   ========================= */
+
+.cake-stage {
+  position: relative !important;
+
+  width: 320px !important;
+
+  margin: 5px auto 0 !important;
+
+  transform: scale(0.68) !important;
+  transform-origin: top center !important;
+}
+
+/* Compensa el espacio que deja el scale */
+.cake {
+  margin-bottom: -25px !important;
+}
+
+.actions {
+  margin-top: 8px !important;
+}
+
+.btn {
+  padding: 9px 14px !important;
+  font-size: 12px !important;
+}
+
+.status {
+  min-height: 16px !important;
+  margin-top: 5px !important;
+  font-size: 11px !important;
+}
+
+/* =========================
+   GLOBOS MÁS PEQUEÑOS
+   ========================= */
+
+.balloon {
+  scale: 0.68;
+}
+
+/* =========================
+   NOTEBOOK / PANTALLA BAJA
+   ========================= */
+
+@media (max-height: 750px) {
+
+  .card {
+    margin-top: -55px !important;
+  }
+
+  .title-script {
+    font-size: 50px !important;
+    line-height: 52px !important;
+  }
+
+  .title-serif {
+    font-size: 36px !important;
+    line-height: 38px !important;
+  }
+
+  .wish {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  .cake-stage {
+    margin-top: 0 !important;
+    transform: scale(0.58) !important;
+  }
+
+  .balloon {
+    scale: 0.58;
+  }
+}
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 860px) {
+
+  .scene {
+    padding: 55px 12px 8px !important;
+  }
+
+  .card {
+    margin: 0 auto !important;
+    max-width: 380px !important;
+  }
+
+  .title-script {
+    font-size: 48px !important;
+  }
+
+  .title-serif {
+    font-size: 34px !important;
+  }
+
+  .cake-stage {
+    transform: scale(0.6) !important;
+    margin-top: 0 !important;
+  }
+
+  .balloon {
+    scale: 0.55;
+  }
+}
 
   .actions {
     margin-top: 4px;
