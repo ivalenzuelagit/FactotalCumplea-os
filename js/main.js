@@ -8,20 +8,18 @@ const canvas = document.getElementById("confetti");
 const wishEl = document.getElementById("wish");
 const ctx = canvas.getContext("2d");
 
-const BALLOON_COUNT = 9;
+const BALLOON_COUNT = 7;
 const CANDLE_COUNT = 6;
 const GOLD = ["#c9a441", "#e8d48a", "#6fbf45", "#2d8a4a", "#fff4c2"];
 
 const balloonLayout = [
-  { x: "4%", y: "6%", size: 128, duration: 6.8, delay: "0s" },
-  { x: "13%", y: "-2%", size: 96, duration: 5.6, delay: ".4s" },
-  { x: "21%", y: "10%", size: 142, duration: 7.4, delay: ".8s" },
-  { x: "8%", y: "28%", size: 110, duration: 6.2, delay: "1.1s" },
-  { x: "28%", y: "2%", size: 88, duration: 5.2, delay: ".2s" },
-  { x: "2%", y: "48%", size: 102, duration: 7.1, delay: "1.6s" },
-  { x: "78%", y: "58%", size: 84, duration: 6.4, delay: ".9s" },
-  { x: "86%", y: "8%", size: 76, duration: 5.8, delay: "1.3s" },
-  { x: "70%", y: "72%", size: 92, duration: 6.9, delay: ".5s" },
+  { x: "6%", y: "2%", size: 108, duration: 6.8, delay: "0s" },
+  { x: "28%", y: "-4%", size: 86, duration: 5.6, delay: ".4s" },
+  { x: "46%", y: "8%", size: 124, duration: 7.4, delay: ".8s" },
+  { x: "18%", y: "22%", size: 96, duration: 6.2, delay: "1.1s" },
+  { x: "40%", y: "28%", size: 78, duration: 5.2, delay: ".2s" },
+  { x: "2%", y: "38%", size: 90, duration: 7.1, delay: "1.6s" },
+  { x: "24%", y: "52%", size: 100, duration: 6.4, delay: ".9s" },
 ];
 
 let particles = [];
@@ -77,7 +75,7 @@ function respawnBalloon(config) {
   balloon.setAttribute("aria-label", "Globo. Pulsa para reventar");
   balloon.style.left = config.x;
   balloon.style.top = config.y;
-  balloon.style.setProperty("--size", `${config.size * 0.7}px`);
+  balloon.style.setProperty("--size", `${config.size}px`);
   balloon.style.setProperty("--duration", `${config.duration}s`);
   balloon.style.setProperty("--delay", "0s");
   balloon.innerHTML = `
@@ -209,20 +207,11 @@ function tick() {
 function personalize() {
   const name = new URLSearchParams(window.location.search).get("nombre");
   if (!name) return;
-
   const safe = name.trim().slice(0, 40);
   if (!safe) return;
-
-  const titleEl = document.getElementById("birthdayTitle");
-
-  if (titleEl) {
-    titleEl.textContent = `Feliz, ${safe}`;
-  }
-
-  wishEl.textContent =
-    `¡Feliz cumpleaños, ${safe}! Te deseamos un día increíble, ` +
-    `que hoy y el año que se viene te traiga éxitos, alegrías y muchos más.`;
+  wishEl.textContent = `¡Feliz cumpleaños, ${safe}! Te deseamos un día increíble, que hoy y el año que se viene te traiga éxitos, alegrías y muchos más.`;
 }
+
 toast.addEventListener("click", () => {
   toast.hidden = true;
 });
