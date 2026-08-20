@@ -34,26 +34,46 @@ body {
   font-family: "Outfit", system-ui, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at 8% -10%, rgba(111, 191, 69, 0.16), transparent 55%),
-    radial-gradient(900px 500px at 110% 8%, rgba(201, 164, 65, 0.14), transparent 50%),
-    linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
-  overflow-x: hidden;
+    radial-gradient(900px 480px at 12% 0%, rgba(111, 191, 69, 0.14), transparent 55%),
+    linear-gradient(180deg, #f4f7f3 0%, #eef3ee 100%);
 }
 
 .scene {
   position: relative;
   min-height: 100vh;
-  padding: 28px 24px 64px;
+  display: grid;
+  place-items: center;
+  padding: 20px 16px;
+}
+
+.greeting {
+  position: relative;
+  width: min(980px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 22px 28px 20px;
   overflow: hidden;
 }
 
 .bg-wash {
   position: absolute;
-  inset: auto -80px -120px auto;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(90, 181, 111, 0.18) 0%, transparent 68%);
+  right: -60px;
+  top: -40px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(90, 181, 111, 0.16) 0%, transparent 68%);
   pointer-events: none;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 72% 18%, rgba(201, 164, 65, 0.45) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 28%, rgba(111, 191, 69, 0.35) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 12%, rgba(201, 164, 65, 0.5) 0 1.5px, transparent 3px);
 }
 
 .brand {
@@ -61,39 +81,50 @@ body {
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .logo {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   background: var(--logo);
   color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 8px 18px rgba(111, 191, 69, 0.28);
+  border-radius: 5px;
+  box-shadow: 0 6px 14px rgba(111, 191, 69, 0.24);
 }
 
 .logo-mark {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: -0.04em;
   line-height: 1;
 }
 
 .logo-word {
-  font-size: 11px;
-  letter-spacing: 0.28em;
+  font-size: 10px;
+  letter-spacing: 0.26em;
   font-weight: 600;
   color: var(--green-800);
 }
 
-.balloons {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.greeting-body {
+  position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.88fr) minmax(280px, 1.12fr);
+  gap: 0;
+  align-items: center;
+}
+
+.balloons {
+  position: relative;
+  height: 460px;
+  pointer-events: none;
+  z-index: 4;
+  margin-right: -48px;
 }
 
 .balloon {
@@ -182,7 +213,7 @@ body {
 
 .balloon-string {
   width: 2px;
-  height: 88px;
+  height: 52px;
   margin: 0 auto;
   background: linear-gradient(180deg, #9aa59e, transparent);
   transform-origin: top center;
@@ -204,70 +235,63 @@ body {
   animation: fade-out 0.2s ease forwards;
 }
 
+.greeting-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 8px 0 0;
+  min-width: 0;
+}
+
 .card {
   position: relative;
   z-index: 3;
-  max-width: 560px;
-  margin: 48px 0 0 auto;
-  padding: 8px 12px 0 0;
-  text-align: right;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--green-700);
-  font-weight: 500;
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  text-align: center;
 }
 
 .title {
   margin: 0;
-  line-height: 0.92;
+  line-height: 0.86;
 }
 
 .title-script {
   display: block;
   font-family: "Great Vibes", cursive;
-  font-size: clamp(64px, 9vw, 118px);
+  font-size: clamp(58px, 7.4vw, 92px);
   font-weight: 400;
   color: var(--green-700);
-  text-shadow: 0 6px 24px rgba(45, 138, 74, 0.12);
 }
 
 .title-serif {
   display: block;
-  margin-top: -6px;
+  margin-top: -4px;
+  margin-left: 18%;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(48px, 7vw, 86px);
+  font-size: clamp(40px, 5.4vw, 64px);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--green-600);
+  text-align: left;
 }
 
 .gold-rule {
-  width: 220px;
+  width: 180px;
   height: 1px;
-  margin: 22px 0 22px auto;
+  margin: 12px auto 12px;
   background: linear-gradient(90deg, transparent, var(--gold-500), var(--gold-300));
 }
 
 .wish {
-  margin: 0 0 18px;
-  max-width: 460px;
-  margin-left: auto;
-  font-size: clamp(16px, 1.7vw, 20px);
-  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 380px;
+  font-size: clamp(14px, 1.45vw, 17px);
+  line-height: 1.45;
   color: var(--muted);
   font-weight: 300;
-}
-
-.hint {
-  margin: 0;
-  font-size: 13px;
-  color: var(--green-700);
-  opacity: 0.8;
 }
 
 .cake-stage {
@@ -275,14 +299,14 @@ body {
   z-index: 4;
   display: grid;
   justify-items: center;
-  margin: 36px auto 0;
-  width: min(420px, 100%);
+  margin-top: 6px;
+  width: 100%;
 }
 
 .cake {
   position: relative;
-  width: 280px;
-  height: 250px;
+  width: 220px;
+  height: 196px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,71 +314,71 @@ body {
 }
 
 .plate {
-  width: 310px;
-  height: 18px;
+  width: 248px;
+  height: 14px;
   border-radius: 50%;
   background: linear-gradient(180deg, #f4f0e6, #d9d1c1);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
 }
 
 .board {
-  width: 248px;
-  height: 10px;
-  margin-bottom: -8px;
+  width: 198px;
+  height: 8px;
+  margin-bottom: -6px;
   border-radius: 4px;
   background: linear-gradient(180deg, #d7b56d, #b0893a);
 }
 
 .layer {
-  width: 220px;
-  border-radius: 8px 8px 18px 18px;
+  width: 176px;
+  border-radius: 8px 8px 16px 16px;
   box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.12);
 }
 
 .layer-base {
-  height: 46px;
-  width: 236px;
+  height: 36px;
+  width: 188px;
   background:
     repeating-linear-gradient(
       90deg,
-      var(--green-700) 0 16px,
-      var(--green-500) 16px 32px
+      var(--green-700) 0 14px,
+      var(--green-500) 14px 28px
     );
 }
 
 .layer-mid {
-  height: 40px;
-  width: 214px;
+  height: 30px;
+  width: 170px;
   background: linear-gradient(180deg, #fff8ee, #f0e2c8);
 }
 
 .layer-top {
-  height: 36px;
-  width: 192px;
+  height: 28px;
+  width: 154px;
   background: linear-gradient(180deg, var(--green-500), var(--green-800));
 }
 
 .cream {
-  height: 10px;
+  height: 8px;
   border-radius: 999px;
   background: linear-gradient(180deg, #fff, #f3e6c8);
   z-index: 1;
 }
 
 .cream-mid {
-  width: 226px;
-  margin: -6px 0;
+  width: 180px;
+  margin: -5px 0;
 }
 
 .cream-top {
-  width: 204px;
-  margin: -6px 0;
+  width: 162px;
+  margin: -5px 0;
 }
 
 .cake-top {
   position: relative;
-  width: 188px;
-  height: 22px;
+  width: 150px;
+  height: 18px;
   background: radial-gradient(circle at 50% 0, #fff, #f7efe0 70%);
   border-radius: 50% 50% 8px 8px / 80% 80% 20% 20%;
   z-index: 2;
@@ -368,34 +392,34 @@ body {
 
 .drip {
   position: absolute;
-  top: 14px;
-  width: 14px;
-  height: 22px;
+  top: 12px;
+  width: 11px;
+  height: 18px;
   background: #fff8ee;
   border-radius: 0 0 10px 10px;
 }
 
-.drip-1 { left: 18px; height: 18px; }
-.drip-2 { left: 52px; height: 26px; }
-.drip-3 { left: 88px; height: 16px; }
-.drip-4 { left: 124px; height: 24px; }
-.drip-5 { left: 156px; height: 17px; }
+.drip-1 { left: 14px; height: 14px; }
+.drip-2 { left: 42px; height: 20px; }
+.drip-3 { left: 70px; height: 13px; }
+.drip-4 { left: 98px; height: 18px; }
+.drip-5 { left: 124px; height: 14px; }
 
 .candles {
   position: absolute;
-  top: 18px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 170px;
-  height: 70px;
+  width: 136px;
+  height: 58px;
   z-index: 5;
 }
 
 .candle {
   position: absolute;
   bottom: 0;
-  width: 8px;
-  height: 38px;
+  width: 7px;
+  height: 32px;
   padding: 0;
   border: 0;
   cursor: pointer;
@@ -404,12 +428,12 @@ body {
   transform: rotate(var(--tilt, 0deg));
 }
 
-.candle:nth-child(1) { left: 12px; height: 34px; --tilt: -8deg; }
-.candle:nth-child(2) { left: 38px; height: 42px; --tilt: -4deg; }
-.candle:nth-child(3) { left: 64px; height: 36px; --tilt: -1deg; }
-.candle:nth-child(4) { left: 90px; height: 44px; --tilt: 2deg; }
-.candle:nth-child(5) { left: 116px; height: 35px; --tilt: 5deg; }
-.candle:nth-child(6) { left: 142px; height: 40px; --tilt: 8deg; }
+.candle:nth-child(1) { left: 8px; height: 28px; --tilt: -8deg; }
+.candle:nth-child(2) { left: 30px; height: 34px; --tilt: -4deg; }
+.candle:nth-child(3) { left: 52px; height: 30px; --tilt: -1deg; }
+.candle:nth-child(4) { left: 74px; height: 36px; --tilt: 2deg; }
+.candle:nth-child(5) { left: 96px; height: 29px; --tilt: 5deg; }
+.candle:nth-child(6) { left: 116px; height: 33px; --tilt: 8deg; }
 
 .candle:focus-visible {
   outline: 2px solid var(--gold-500);
@@ -418,20 +442,20 @@ body {
 
 .wick {
   position: absolute;
-  top: -6px;
+  top: -5px;
   left: 50%;
   width: 2px;
-  height: 7px;
+  height: 6px;
   background: #2b2b2b;
   transform: translateX(-50%);
 }
 
 .flame {
   position: absolute;
-  top: -26px;
+  top: -22px;
   left: 50%;
-  width: 12px;
-  height: 22px;
+  width: 10px;
+  height: 18px;
   transform: translateX(-50%);
   background: radial-gradient(circle at 50% 70%, #fff6c2 0 22%, #ffb347 45%, #ff6b1a 100%);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
@@ -458,7 +482,7 @@ body {
 
 .smoke {
   position: absolute;
-  top: -18px;
+  top: -16px;
   left: 50%;
   width: 8px;
   height: 8px;
@@ -476,9 +500,9 @@ body {
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
-  margin-top: 28px;
+  margin-top: 10px;
 }
 
 .btn {
@@ -486,10 +510,10 @@ body {
   border: 0;
   cursor: pointer;
   font: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 12px 18px;
+  padding: 9px 14px;
   border-radius: 999px;
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s ease;
 }
@@ -510,7 +534,7 @@ body {
 .btn-primary {
   color: #fff;
   background: linear-gradient(180deg, var(--green-500), var(--green-800));
-  box-shadow: 0 10px 20px rgba(26, 92, 50, 0.22);
+  box-shadow: 0 8px 16px rgba(26, 92, 50, 0.2);
 }
 
 .btn-ghost {
@@ -520,11 +544,11 @@ body {
 }
 
 .status {
-  min-height: 24px;
-  margin: 14px 0 0;
+  min-height: 0;
+  margin: 6px 0 0;
   text-align: center;
   color: var(--green-800);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .confetti-layer {
@@ -534,16 +558,6 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 5;
-}
-
-.sparkles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 72% 18%, rgba(201, 164, 65, 0.45) 0 1px, transparent 2px),
-    radial-gradient(circle at 80% 28%, rgba(111, 191, 69, 0.35) 0 1px, transparent 2px),
-    radial-gradient(circle at 64% 12%, rgba(201, 164, 65, 0.5) 0 1.5px, transparent 3px);
 }
 
 .wish-toast {
@@ -558,12 +572,12 @@ body {
 
 .wish-toast p {
   margin: 0;
-  padding: 22px 32px;
+  padding: 18px 28px;
   background: #fff;
   color: var(--green-800);
   font-family: "Cormorant Garamond", serif;
-  font-size: 36px;
-  border-radius: 18px;
+  font-size: 32px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
 }
 
@@ -577,7 +591,7 @@ body {
     transform: translate3d(0, 0, 0) rotate(-3deg);
   }
   50% {
-    transform: translate3d(12px, -22px, 0) rotate(4deg);
+    transform: translate3d(8px, -12px, 0) rotate(4deg);
   }
 }
 
@@ -643,25 +657,32 @@ body {
   }
 }
 
-@media (max-width: 860px) {
-  .card {
-    margin: 220px auto 0;
-    text-align: center;
+@media (max-width: 820px) {
+  .greeting {
+    padding: 16px 16px 18px;
+  }
+
+  .greeting-body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .balloons {
+    height: 230px;
+    margin: -4px 0 -28px;
+  }
+
+  .greeting-copy {
     padding: 0;
   }
 
-  .gold-rule,
-  .wish {
-    margin-left: auto;
-    margin-right: auto;
+  .title-serif {
+    margin-left: 0;
+    text-align: center;
   }
 
-  .title-script {
-    font-size: 72px;
-  }
-
-  .cake-stage {
-    margin-top: 28px;
+  .cake {
+    height: 180px;
   }
 }
 
@@ -670,397 +691,5 @@ body {
   .balloon-string,
   .flame {
     animation: none;
-  }
-}
-/* =========================================
-   VERSION COMPACTA Y CENTRADA
-   ========================================= */
-
-.scene {
-  min-height: 100svh;
-  height: 100svh;
-  padding: 18px 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-}
-
-/* Logo siempre arriba a la izquierda */
-.brand {
-  position: absolute;
-  top: 18px;
-  left: 20px;
-}
-
-/* Tarjeta más pequeña y centrada */
-.card {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-
-.eyebrow {
-  margin-bottom: 4px;
-  font-size: 10px;
-}
-
-/* Títulos más compactos */
-.title-script {
-  font-size: clamp(48px, 7vw, 78px);
-}
-
-.title-serif {
-  margin-top: -4px;
-  font-size: clamp(36px, 5.5vw, 56px);
-}
-
-/* Línea dorada centrada */
-.gold-rule {
-  width: 150px;
-  margin: 12px auto 14px;
-}
-
-/* Mensaje más compacto */
-.wish {
-  max-width: 420px;
-  margin: 0 auto 8px;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.4;
-  text-align: center;
-}
-
-.hint {
-  font-size: 12px;
-}
-
-/* Acercar la torta al mensaje */
-.cake-stage {
-  margin: 12px auto 0;
-  width: min(340px, 100%);
-}
-
-/* Reducir visualmente la torta */
-.cake {
-  height: 205px;
-  transform: scale(0.82);
-  transform-origin: center bottom;
-  margin-top: -12px;
-  margin-bottom: -24px;
-}
-
-/* Botones más pequeños */
-.actions {
-  margin-top: 10px;
-  gap: 8px;
-}
-
-.btn {
-  padding: 9px 15px;
-  font-size: 12px;
-}
-
-.status {
-  min-height: 18px;
-  margin-top: 6px;
-  font-size: 12px;
-}
-
-
-/* Pantallas pequeñas */
-@media (max-width: 860px) {
-  .scene {
-    padding: 65px 16px 12px;
-    justify-content: center;
-  }
-
-  /* IMPORTANTE: elimina el margin-top: 220px anterior */
-  .card {
-    margin: 0 auto;
-  }
-
-  .title-script {
-    font-size: 54px;
-  }
-
-  .title-serif {
-    font-size: 40px;
-  }
-
-  .cake-stage {
-    margin-top: 6px;
-  }
-
-  .cake {
-    transform: scale(0.72);
-    margin-top: -20px;
-    margin-bottom: -38px;
-  }
-}
-
-
-/* Pantallas bajas, como notebook */
-@media (max-height: 700px) {
-  .brand {
-    top: 10px;
-    left: 14px;
-    transform: scale(0.85);
-    transform-origin: top left;
-  }
-
-  .eyebrow {
-    margin-bottom: 2px;
-  }
-
-  .title-script {
-    font-size: 46px;
-  }
-
-  .title-serif {
-    font-size: 34px;
-  }
-
-  .gold-rule {
-    margin-top: 7px;
-    margin-bottom: 8px;
-  }
-
-  .wish {
-    font-size: 13px;
-    line-height: 1.3;
-    margin-bottom: 5px;
-  }
-
-  .hint {
-    font-size: 11px;
-  }
-
-  .cake-stage {
-    margin-top: 2px;
-  }
-
-  .cake {
-    transform: scale(0.68);
-    margin-top: -28px;
-    margin-bottom: -48px;
-  }
-  /* ==================================================
-   FACTOTAL - VERSION COMPACTA / SIN SCROLL
-   PEGAR AL FINAL DEL ARCHIVO
-   ================================================== */
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: hidden !important;
-}
-
-.scene {
-  width: 100%;
-  height: 100vh !important;
-  min-height: 100vh !important;
-
-  padding: 12px 20px !important;
-
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-
-  overflow: hidden !important;
-}
-
-/* Logo */
-.brand {
-  position: absolute !important;
-  top: 18px !important;
-  left: 20px !important;
-}
-
-/* =========================
-   TEXTO CENTRAL
-   ========================= */
-
-.card {
-  position: relative !important;
-
-  width: 100% !important;
-  max-width: 430px !important;
-
-  margin: -30px auto 0 !important;
-  padding: 0 !important;
-
-  text-align: center !important;
-}
-
-.eyebrow {
-  margin: 0 0 3px !important;
-  font-size: 9px !important;
-  letter-spacing: 0.25em !important;
-}
-
-.title {
-  margin: 0 !important;
-  line-height: 0.9 !important;
-}
-
-.title-script {
-  font-size: 58px !important;
-  line-height: 60px !important;
-}
-
-.title-serif {
-  margin-top: -2px !important;
-
-  font-size: 42px !important;
-  line-height: 44px !important;
-}
-
-.gold-rule {
-  width: 120px !important;
-  height: 1px !important;
-
-  margin: 10px auto 10px !important;
-}
-
-.wish {
-  width: 100% !important;
-  max-width: 400px !important;
-
-  margin: 0 auto 6px !important;
-
-  font-size: 14px !important;
-  line-height: 1.35 !important;
-
-  text-align: center !important;
-}
-
-.hint {
-  margin: 0 !important;
-
-  font-size: 11px !important;
-  line-height: 16px !important;
-}
-
-/* =========================
-   TORTA
-   ========================= */
-
-.cake-stage {
-  position: relative !important;
-
-  width: 320px !important;
-
-  margin: 5px auto 0 !important;
-
-  transform: scale(0.68) !important;
-  transform-origin: top center !important;
-}
-
-/* Compensa el espacio que deja el scale */
-.cake {
-  margin-bottom: -25px !important;
-}
-
-.actions {
-  margin-top: 8px !important;
-}
-
-.btn {
-  padding: 9px 14px !important;
-  font-size: 12px !important;
-}
-
-.status {
-  min-height: 16px !important;
-  margin-top: 5px !important;
-  font-size: 11px !important;
-}
-
-/* =========================
-   GLOBOS MÁS PEQUEÑOS
-   ========================= */
-
-.balloon {
-  scale: 0.68;
-}
-
-/* =========================
-   NOTEBOOK / PANTALLA BAJA
-   ========================= */
-
-@media (max-height: 750px) {
-
-  .card {
-    margin-top: -55px !important;
-  }
-
-  .title-script {
-    font-size: 50px !important;
-    line-height: 52px !important;
-  }
-
-  .title-serif {
-    font-size: 36px !important;
-    line-height: 38px !important;
-  }
-
-  .wish {
-    font-size: 13px !important;
-    line-height: 1.3 !important;
-  }
-
-  .cake-stage {
-    margin-top: 0 !important;
-    transform: scale(0.58) !important;
-  }
-
-  .balloon {
-    scale: 0.58;
-  }
-}
-
-/* =========================
-   MÓVIL
-   ========================= */
-
-@media (max-width: 860px) {
-
-  .scene {
-    padding: 55px 12px 8px !important;
-  }
-
-  .card {
-    margin: 0 auto !important;
-    max-width: 380px !important;
-  }
-
-  .title-script {
-    font-size: 48px !important;
-  }
-
-  .title-serif {
-    font-size: 34px !important;
-  }
-
-  .cake-stage {
-    transform: scale(0.6) !important;
-    margin-top: 0 !important;
-  }
-
-  .balloon {
-    scale: 0.55;
-  }
-}
-
-  .actions {
-    margin-top: 4px;
   }
 }
