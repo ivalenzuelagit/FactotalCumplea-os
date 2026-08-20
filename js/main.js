@@ -43,7 +43,7 @@ function createBalloons() {
     balloon.style.setProperty("--delay", config.delay);
     balloon.innerHTML = `
       <span class="balloon-body">
-        <span class="balloon-sticker">Ft<small>FACTOTAL</small></span>
+        <img class="balloon-sticker" src="img/logo-factotal.png" alt="" />
       </span>
       <span class="balloon-knot"></span>
       <span class="balloon-string"></span>
@@ -80,7 +80,7 @@ function respawnBalloon(config) {
   balloon.style.setProperty("--delay", "0s");
   balloon.innerHTML = `
     <span class="balloon-body">
-      <span class="balloon-sticker">Ft<small>FACTOTAL</small></span>
+      <img class="balloon-sticker" src="img/logo-factotal.png" alt="" />
     </span>
     <span class="balloon-knot"></span>
     <span class="balloon-string"></span>
