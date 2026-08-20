@@ -209,11 +209,20 @@ function tick() {
 function personalize() {
   const name = new URLSearchParams(window.location.search).get("nombre");
   if (!name) return;
+
   const safe = name.trim().slice(0, 40);
   if (!safe) return;
-  wishEl.textContent = `¡Feliz cumpleaños, ${safe}! Te deseamos un día increíble, que hoy y el año que se viene te traiga éxitos, alegrías y muchos más.`;
-}
 
+  const titleEl = document.getElementById("birthdayTitle");
+
+  if (titleEl) {
+    titleEl.textContent = `Feliz, ${safe}`;
+  }
+
+  wishEl.textContent =
+    `¡Feliz cumpleaños, ${safe}! Te deseamos un día increíble, ` +
+    `que hoy y el año que se viene te traiga éxitos, alegrías y muchos más.`;
+}
 toast.addEventListener("click", () => {
   toast.hidden = true;
 });
